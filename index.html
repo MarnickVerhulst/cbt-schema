@@ -3,101 +3,440 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CBT Schema Invuller</title>
+  <title>CBT en Gedragsschema</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 2rem;
-      background-color: #f4f4f4;
+      background-color: #f9f9f9;
+      color: #222;
+      max-width: 900px;
     }
-    h1 {
-      text-align: center;
+    h1, h2 {
+      margin-bottom: 0.5rem;
     }
-    form {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    ul {
+      line-height: 1.6;
+      margin-top: 0;
+    }
+    .note {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #444;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 1rem 0.5rem 2rem 0;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      background-color: #0078d7;
+      color: white;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #005ea2;
+    }
+    .hidden {
+      display: none;
     }
     label {
       display: block;
       margin-top: 1rem;
       font-weight: bold;
     }
-    textarea, input[type="text"], input[type="number"] {
+    textarea, input[type="text"] {
       width: 100%;
-      padding: 0.5rem;
+      padding: 8px;
       margin-top: 0.25rem;
-      border: 1px solid #ccc;
       border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-sizing: border-box;
       resize: vertical;
-      font-size: 1rem;
     }
-    button {
+    .explanation {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      table-layout: fixed;
+      word-wrap: break-word;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #eee;
+    }
+    #cbtTableContainer, #evaluatiePage, #gedragTableContainer {
       margin-top: 2rem;
-      padding: 1rem 2rem;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    button:hover {
-      background-color: #0056b3;
+      overflow-x: auto;
+      background: white;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
-  <h1>CBT Schema Invuller</h1>
-  <form id="cbt-form">
-    <label for="gebeurtenis">Gebeurtenis</label>
-    <textarea id="gebeurtenis" name="Gebeurtenis" rows="2"></textarea>
 
-    <label for="negatieve-gedachte">Negatieve gedachte en geloof sterkte (%)</label>
-    <textarea id="negatieve-gedachte" name="Negatieve gedachte en geloof sterkte %" rows="2"></textarea>
+  <h1>Zelfzorg en Aanpak</h1>
+  <ul>
+    <li>Bewegen</li>
+    <li>Gezond eten</li>
+    <li>Slapen</li>
+    <li>Minder alcohol</li>
+    <li>Zoek afleiding</li>
+    <li>Maak kleine doelen</li>
+    <li>Wees dankbaar</li>
+    <li>Schrijf gedachten op</li>
+    <li>Praat erover</li>
+    <li>Hulp/steun</li>
+    <li>Geef niet op</li>
+    <li>Blijf positief</li>
+  </ul>
 
-    <label for="negatief-gevoel">Negatief gevoel (%)</label>
-    <input type="number" id="negatief-gevoel" name="Negatief gevoel %" min="0" max="100" />
+  <div class="note">
+    <p>Bij bijv. heftige dingen heeft CBT geen zin. Dan eerst verwerken, gedachten onderzoeken ipv veranderen, structuur aanbrengen, bewegen richting waardevol leven, milde exposure.</p>
+    <p>Bij echt erge dingen kun je het wel toepassen voor negatieve gedachten die niet nodig zijn, alleen het echt nare ding blijft dan wel. Kan je wel accepteren als 't niet zo erg is. Kan ook wel veranderen als je behoeften of leefstijl anders wordt of als je daarmee bezig gaat. Wel moeilijker. Zeker als omgeving hetzelfde blijft.</p>
+    <p>
+    Door dit te doen, zorgt dit ervoor dat ik me beter voel of dat ik beter word?<br/>
+    Hoe minder je doet, hoe minder je wilt doen<br/><br/>
+    Sommige lessen zijn alleen op de harde manier te leren<br/><br/>
+    Niet uitstellen wat belangrijk is
+  </p>
+  <h3>Helpende gedachte</h3>
+  <p>
+    Stel jezelf open vragen<br/><br/>
+    Ben ik onterecht negatief over wat er gebeurde?<br/>
+    Kan ik er op een andere manier naar kijken?<br/>
+    Heb ik ondersteunend bewijs?<br/>
+    Hoe zou ik iemand anders adviseren die hiermee te maken heeft?<br/>
+    Hebben anderen hetzelfde geloof?<br/><br/>
+    Doel is niet om alles onwaar te maken oid, maar om alle opties te verkennen en er dus breder naar te kijken.<br/>
+    Vraag het anderen hoe zij ernaar kijken<br/>
+    Wat is het ergste wat er kan gebeuren en hoe zou ik daarmee omgaan?<br/>
+    Hoe kan ik dit veranderen?
+  </p>
+  <h3>Foutieve denkstijlen:</h3>
+<ul>
+  <li>Generaliseren</li>
+  <li>Mind lezen</li>
+  <li>Gepolariseerd denken</li>
+  <li>Catastrofe denken</li>
+  <li>Personaliseren</li>
+  <li>Magnificatie en filteren</li>
+  <li>Streng, rigide denken</li>
+</ul>
 
-    <label for="bewijs-ondersteunend">Welk bewijs heb ik om deze gedachte te ondersteunen?</label>
-    <textarea id="bewijs-ondersteunend" name="Bewijs voor negatieve gedachte" rows="3"></textarea>
+  <h3>Reflectie en alternatieve gedachten</h3>
+  <p>
+    Ookal is de uitkomst negatief, dan heb je het iig geprobeerd. Dan is het gewoon accepteren en na een tijd weer proberen.<br/><br/>
+    Gedachten &gt; geloof &gt; aannames<br/><br/>
+    Wat zijn de voordelen en nadelen van dit geloof?<br/>
+    Meer helpvolle geloven maken<br/><br/>
+  </p>
 
-    <label for="alternatief-perspectief">Kan ik er op enige andere manier naar kijken?</label>
-    <textarea id="alternatief-perspectief" name="Alternatieve kijk" rows="3"></textarea>
+  <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 600px;">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Jack the Ripper</th>
+      <th>Moeder Theresa</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>0% ------------- 25% -------</th>
+      <th>50% ----------------75% ---------------100%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mijn geloof</td>
+      <td><input type="text" name="jack_geloof" style="width: 100%;"></td>
+      <td><input type="text" name="theresa_geloof" style="width: 100%;"></td>
+    </tr>
+    <tr>
+      <td>Aanname</td>
+      <td><input type="text" name="jack_aanname" style="width: 100%;"></td>
+      <td><input type="text" name="theresa_aanname" style="width: 100%;"></td>
+    </tr>
+    <tr>
+      <td>Mijn regels voor leven</td>
+      <td><input type="text" name="jack_regels" style="width: 100%;"></td>
+      <td><input type="text" name="theresa_regels" style="width: 100%;"></td>
+    </tr>
+  </tbody>
+</table>
 
-    <label for="bewijs-alternatief">Welk bewijs heb ik om deze andere manier van denken te ondersteunen?</label>
-    <textarea id="bewijs-alternatief" name="Bewijs voor alternatieve gedachte" rows="3"></textarea>
+  <p>
+    Maak ook hier weer een sterke gedachte van, dus doorvragen.<br/><br/>
+    Gebruik hierna weer het eerdere schema ‘gedrag’ om het uit te testen of het waar is.<br/><br/>
+    Maak er nu meer helpende geloven van, bewijs voor oude en nieuwe geloof.<br/><br/>
+    Denken anderen ook zo?
+  </p>
 
-    <label for="nieuw-geloof">Hoe erg geloof ik mijn gedachte nog? (%)</label>
-    <input type="number" id="nieuw-geloof" name="Geloof negatieve gedachte na reflectie %" min="0" max="100" />
+  </div>
 
-    <label for="nieuw-gevoel">Hoe voel ik me nu? (%)</label>
-    <input type="number" id="nieuw-gevoel" name="Nieuw gevoel %" min="0" max="100" />
+  <button id="btnShowCBT">CBT-schema</button>
+  <button id="btnShowGedrag">Gedragsschema</button>
 
-    <button type="button" onclick="downloadData()">Opslaan als bestand</button>
-  </form>
+  <!-- CBT formulier -->
+  <section id="cbtSection" class="hidden">
+    <h2>CBT-schema</h2>
+    <form id="cbtForm">
+      <label for="gebeurtenis">1. Gebeurtenis
+        <div class="explanation">Heb ik vaker dit gevoel gehad in eenzelfde soort situatie?</div>
+      </label>
+      <textarea id="gebeurtenis" name="gebeurtenis" rows="2" required></textarea>
+
+      <label for="negatieveGedachte">2. Negatieve gedachte en geloof sterkte %
+        <div class="explanation">Maak een sterke gedachte: gedachte &gt; waarom is dit erg &gt; gedachte &gt; waarom is dit erg</div>
+        <div class="explanation">Identificeer de emotie. Hoe voelt mijn lichaam? Hoe voel ik me? Honger?</div>
+      </label>
+      <input type="text" id="negatieveGedachte" name="negatieveGedachte" required />
+
+      <label for="negatiefGevoel">3. Negatief gevoel %</label>
+      <input type="text" id="negatiefGevoel" name="negatiefGevoel" required />
+
+      <label for="bewijsOndersteunen">4. Welk bewijs heb ik om deze gedachte te ondersteunen?
+        <div class="explanation">
+          Bewijs: moet feit zijn.
+        </div>
+      </label>
+      <textarea id="bewijsOndersteunen" name="bewijsOndersteunen" rows="3" required></textarea>
+
+      <label for="andereManier">5. Kan ik er op enige andere manier naar kijken? (bewijs of troost)
+        <div class="explanation">
+          Op andere manier naar kijken: is het een gedachte of een feit? Gedachte? Ombuigen.
+          <br/>
+          Had ik in een soortgelijke situatie ook een andere view genomen, en hoe zag ik het toen?<br/>
+          Is er iets positiefs uit deze situatie te halen?<br/>
+          Als een vriend deze situatie zou hebben, wat zou ik tegen hem zeggen?<br/>
+          Wat zou een vriend tegen mij zeggen?<br/>
+          Als we de situatie met een vriendengroep voorleggen, zou iedereen dan hetzelfde denken als ik? Waarom niet?<br/>
+          Wat is het ergste wat kan gebeuren als mijn gedachte juist is?<br/>
+          Kan ik daarmee leven? Zou het mijn leven echt veranderen?<br/>
+          Zou ik er over een paar jaar nog mee zitten?<br/>
+          100% zeker dat het zo is?<br/>
+          Bewijs of troost.
+        </div>
+      </label>
+      <textarea id="andereManier" name="andereManier" rows="4" required></textarea>
+
+      <label for="bewijsAndereManier">Welk bewijs heb ik om deze andere manier van denken te ondersteunen?</label>
+      <textarea id="bewijsAndereManier" name="bewijsAndereManier" rows="3" required></textarea>
+
+      <label for="geloofNu">Hoe erg geloof ik mijn gedachte nog? %</label>
+      <input type="text" id="geloofNu" name="geloofNu" required />
+
+      <label for="gevoelNu">Hoe voel ik me nu? %</label>
+      <input type="text" id="gevoelNu" name="gevoelNu" required />
+
+      <button type="submit" style="margin-top:1.5rem;">Toon tabel</button>
+    </form>
+
+    <div id="cbtTableContainer" class="hidden"></div>
+
+    <button id="btnDownloadTable" class="hidden">Tabel downloaden</button>
+  </section>
+
+  <!-- Evaluatie -->
+  <section id="evaluatiePage" class="hidden">
+    <h2>Evaluatie</h2>
+    <p><strong>Iets veranderen aan gebeurtenis als gedachte juist was?</strong></p>
+    <p>
+      Accepteren: ik ga dit probleem aan en ga er op een zo goed mogelijke manier mee om.<br/>
+      Het is misschien niet ideaal, maar ik doe mijn best en ik zie wel wat er gebeurt.<br/>
+      Zorgen maken maakt het erger, dus ik zal de situatie accepteren ipv er over te piekeren.<br/>
+      Ik heb in zo een situatie eerder gezeten en ik ben er doorheen gekomen.<br/>
+      Dingen zullen verbeteren hoe meer ik gewend ben aan omgaan met mijn problemen.<br/>
+      Meeste dingen zullen niet zo erg uitpakken als dat je denkt.<br/>
+      Ik ben sterk genoeg, ik zal trots zijn.
+    </p>
+    <p>
+    Doelen stellen.<br/><br/>
+    Accepteren wanneer het veranderen meer moeite is dan de kwaal zelf.<br/>
+    Andere therapieen?
+  </p>
+  </section>
+
+  <!-- Gedragsschema -->
+  <section id="gedragSection" class="hidden">
+    <h2>Gedragsschema</h2>
+    <p>
+      Gebruik dit om dingen die je minder doen voelen omdat je denkt dat het niet goed gaat oid juist te proberen om het uit te vinden. Doe het stapsgewijs. Dingen anders doen om je anders te voelen.<br />
+      Gedachten en gedrag moeten positiever zijn om uitkomst positief te laten zijn.
+    </p>
+
+    <div id="gedragTableContainer">
+      <table>
+        <thead>
+          <tr>
+            <th>Wat ga ik proberen?</th>
+            <th>Wat voorspel ik dat er gaat gebeuren en hoe voel ik me daarover? %</th>
+            <th>Wat gebeurde er echt?</th>
+            <th>Wat heb ik hier van geleerd?</th>
+            <th>Hoe kan ik hiermee verder bouwen?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
   <script>
-    function downloadData() {
-      const form = document.getElementById('cbt-form');
-      const formData = new FormData(form);
-      const data = {};
+    // Elementen selecteren
+    const btnShowCBT = document.getElementById('btnShowCBT');
+    const btnShowGedrag = document.getElementById('btnShowGedrag');
+    const cbtSection = document.getElementById('cbtSection');
+    const gedragSection = document.getElementById('gedragSection');
+    const evaluatiePage = document.getElementById('evaluatiePage');
 
-      formData.forEach((value, key) => {
-        data[key] = value;
-      });
+    // Knoppen tonen juiste sectie
+    btnShowCBT.onclick = () => {
+      cbtSection.classList.remove('hidden');
+      gedragSection.classList.add('hidden');
+      evaluatiePage.classList.add('hidden');
+    };
 
-      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    btnShowGedrag.onclick = () => {
+      gedragSection.classList.remove('hidden');
+      cbtSection.classList.add('hidden');
+      evaluatiePage.classList.add('hidden');
+    };
+
+    // CBT formulier en tabel
+    const cbtForm = document.getElementById('cbtForm');
+    const cbtTableContainer = document.getElementById('cbtTableContainer');
+    const btnDownloadTable = document.getElementById('btnDownloadTable');
+
+    cbtForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Waarden uit formulier
+      const data = {
+        gebeurtenis: cbtForm.gebeurtenis.value.trim(),
+        negatieveGedachte: cbtForm.negatieveGedachte.value.trim(),
+        negatiefGevoel: cbtForm.negatiefGevoel.value.trim(),
+        bewijsOndersteunen: cbtForm.bewijsOndersteunen.value.trim(),
+        andereManier: cbtForm.andereManier.value.trim(),
+        bewijsAndereManier: cbtForm.bewijsAndereManier.value.trim(),
+        geloofNu: cbtForm.geloofNu.value.trim(),
+        gevoelNu: cbtForm.gevoelNu.value.trim()
+      };
+
+      // Bouw tabel met vragen in kolommen, antwoorden in rijen
+      const tableHtml = `
+        <table>
+          <thead>
+            <tr>
+              <th>1. Gebeurtenis</th>
+              <th>2. Negatieve gedachte en geloof sterkte %</th>
+              <th>3. Negatief gevoel %</th>
+              <th>4. Welk bewijs heb ik om deze gedachte te ondersteunen?</th>
+              <th>5. Kan ik er op enige andere manier naar kijken?</th>
+              <th>6. Welk bewijs heb ik om deze andere manier van denken te ondersteunen?</th>
+              <th>7. Hoe erg geloof ik mijn gedachte nog? %</th>
+              <th>8. Hoe voel ik me nu? %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>${data.gebeurtenis}</td>
+              <td>${data.negatieveGedachte}</td>
+              <td>${data.negatiefGevoel}</td>
+              <td>${data.bewijsOndersteunen}</td>
+              <td>${data.andereManier}</td>
+              <td>${data.bewijsAndereManier}</td>
+              <td>${data.geloofNu}</td>
+              <td>${data.gevoelNu}</td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+
+      cbtTableContainer.innerHTML = tableHtml;
+      cbtTableContainer.classList.remove('hidden');
+      btnDownloadTable.classList.remove('hidden');
+      evaluatiePage.classList.remove('hidden');
+
+      // Scroll naar tabel
+      window.scrollTo({ top: cbtTableContainer.offsetTop, behavior: 'smooth' });
+    });
+
+    // Download tabel als HTML-bestand
+    btnDownloadTable.onclick = () => {
+      if (!cbtTableContainer.innerHTML) {
+        alert('Er is geen tabel om te downloaden.');
+        return;
+      }
+
+      const htmlContent = `
+        <!DOCTYPE html>
+        <html lang="nl">
+        <head>
+          <meta charset="UTF-8" />
+          <title>CBT Schema</title>
+          <style>
+            body { font-family: Arial, sans-serif; padding: 1rem; }
+            table { width: 100%; border-collapse: collapse; }
+            th, td { border: 1px solid #ccc; padding: 10px; text-align: left; vertical-align: top; }
+            th { background-color: #eee; }
+          </style>
+        </head>
+        <body>
+          <h1>CBT-schema</h1>
+          ${cbtTableContainer.innerHTML}
+        </body>
+        </html>
+      `;
+
+      const blob = new Blob([htmlContent], { type: 'text/html' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `cbt-schema-${new Date().toISOString()}.json`;
+      a.download = 'cbt-schema.html';
+      document.body.appendChild(a);
       a.click();
+      document.body.removeChild(a);
       URL.revokeObjectURL(url);
-    }
+    };
   </script>
+
 </body>
 </html>
+
+
